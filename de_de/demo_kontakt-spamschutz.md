@@ -26,8 +26,11 @@ Siehe [YForm Formbuilder Values](yform_modul_values.md#captcha_calc)
 **Vorgehensweise**
 
 1.**WICHTIG: damit das funktioniert, muss `real_field_names` auf `true` stehen `objparams|real_field_names|1`
+
 2. Feld vom Typ PHP anlegen: `php|validate_timer|Spamschutz|<?php echo '<input name="validate_timer" type="hidden" value="'.microtime(true).'" />' ?>|`
+
 3. Validierung vom Typ custom_function anlegen: `validate|customfunction|validate_timer|yform_validate_timer|5|Spambots haben keine Chance|`
+
 4. Nachfolgende Funktion per FTP in dem Ordner: Redaxo/src/addons/project/boot.php hinterlegen, die via `custom_function` aufgerufen wird.
 
 ```
